@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllContinents, updateSelectedContinent } from '../redux/continents/continentsSlice';
+import { getAllCountries } from '../redux/countries/countriesSlice';
 import Header from '../components/Header';
 import Headline from '../components/Headline';
 import CountriesList from '../components/CountriesList';
@@ -13,7 +14,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatchActions(getAllContinents());
-  }, [continents]);
+    dispatchActions(getAllCountries());
+  }, []);
 
   const handleContinentsSelection = (e) => {
     const continent = e.target.value;
@@ -25,7 +27,7 @@ const Home = () => {
       <Header navigation={{ name: <span>Covid19</span>, url: '/', page: 'Global disease stats' }} />
       <main>
         <div className="continents-dropdown">
-          <select className="continents-options" onChange={handleContinentsSelection}>
+          <select className="continents-options" defaultValue={selectedContinent.name} onChange={handleContinentsSelection}>
             {
               continents.map((continent) => (
                 <option key={continent.id} value={continent.name}>{continent.name}</option>
@@ -38,7 +40,7 @@ const Home = () => {
           name={selectedContinent.name}
           totalCases={selectedContinent.cases}
         />
-        <CountriesList countriesByContinent={selectedContinent.countriesList} />
+        <CountriesList />
       </main>
     </>
   );
