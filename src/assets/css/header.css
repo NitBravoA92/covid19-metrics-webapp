@@ -13,7 +13,7 @@ nav #menu {
   color: #fff;
 }
 
-#menu .pageName{
+#menu .pageName {
   font-size: 1.1rem;
   font-weight: 400;
   padding-top: 0.2rem;
@@ -46,3 +46,4 @@ nav #menu {
   justify-content: center;
   align-items: flex-end;
 }
+
