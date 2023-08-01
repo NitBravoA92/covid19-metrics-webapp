@@ -1,5 +1,15 @@
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: #4369b2;
+  color: #fff;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -15,3 +25,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
