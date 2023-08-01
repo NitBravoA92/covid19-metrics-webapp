@@ -21,7 +21,11 @@ const Header = ({ navigation }) => (
 );
 
 Header.propTypes = {
-  navigation: PropTypes.objectOf(PropTypes.string).isRequired,
+  navigation: PropTypes.shape({
+    name: PropTypes.node,
+    url: PropTypes.string,
+    page: PropTypes.string,
+  }).isRequired,
 };
 
 export default Header;
