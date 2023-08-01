@@ -35,30 +35,26 @@ export const continentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllContinents.pending, (state) => {
-        if (state.continents.length === 0) state.isLoading = true;
+        state.isLoading = true;
       })
       .addCase(getAllContinents.fulfilled, (state, action) => {
-        if (state.continents.length === 0) {
-          state.isLoading = false;
-          state.continents = action.payload.map((continent, index) => (
-            {
-              id: (index + 1),
-              name: continent.continent,
-              cases: continent.cases,
-              deaths: continent.deaths,
-              recovered: continent.recovered,
-              countriesList: continent.countries.join(','),
-            }
-          ));
-          const [initialSelectedContinent] = state.continents;
-          state.selectedContinent = initialSelectedContinent;
-        }
+        state.isLoading = false;
+        state.continents = action.payload.map((continent, index) => (
+          {
+            id: (index + 1),
+            name: continent.continent,
+            cases: continent.cases,
+            deaths: continent.deaths,
+            recovered: continent.recovered,
+            countriesList: continent.countries.join(','),
+          }
+        ));
+        const [initialSelectedContinent] = state.continents;
+        state.selectedContinent = initialSelectedContinent;
       })
       .addCase(getAllContinents.rejected, (state, action) => {
-        if (state.continents.length === 0) {
-          state.isLoading = false;
-          state.error = action.payload;
-        }
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
