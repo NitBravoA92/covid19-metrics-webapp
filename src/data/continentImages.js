@@ -6,10 +6,10 @@ import NorthAmerica from '../assets/images/NorthAmerica.png';
 import SouthAmerica from '../assets/images/SouthAmerica.webp';
 
 const continentImages = {
-  'Africa': Africa,
-  'Asia': Asia,
+  Africa,
+  Asia,
   'Australia-Oceania': AustraliaOceania,
-  'Europe': Europe,
+  Europe,
   'North America': NorthAmerica,
   'South America': SouthAmerica,
 };
