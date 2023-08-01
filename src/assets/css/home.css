@@ -1,0 +1,57 @@
+.continents-dropdown {
+  display: flex;
+  justify-content: center;
+}
+
+.continents-options {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  outline: none;
+  background-color: #2853ad;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.countries-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country-item {
+  width: 50%;
+  height: 180px;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  position: relative;
+  transition: all 0.3s ease-out;
+}
+
+.country-item:hover {
+  background-color: rgba(75, 107, 177, 0.797);
+}
+
+.country-item .btn-show-details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 0.3rem;
+}
+
+.country-item .details {
+  text-align: right;
+  color: #fff;
+  width: 50%;
+}
+
+.country-item .details .title {
+  font-size: 1rem;
+}
