@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import continentImages from '../data/continentImages';
 import '../assets/css/headline.css';
 
-const Headline = ({ name, totalCases }) => (
+const Headline = ({ srcImg, name, totalCases }) => (
   <section className="headline">
     <div className="region image">
-      <img src={continentImages[name]} alt={name} />
+      <img src={srcImg} alt={name} />
     </div>
     <div className="region info">
       <h1 className="name">{ name }</h1>
@@ -18,9 +17,16 @@ const Headline = ({ name, totalCases }) => (
   </section>
 );
 
+Headline.defaultProps = {
+  srcImg: '',
+  name: '',
+  totalCases: 0,
+};
+
 Headline.propTypes = {
-  name: PropTypes.string.isRequired,
-  totalCases: PropTypes.string.isRequired,
+  srcImg: PropTypes.string,
+  name: PropTypes.string,
+  totalCases: PropTypes.number,
 };
 
 export default Headline;
