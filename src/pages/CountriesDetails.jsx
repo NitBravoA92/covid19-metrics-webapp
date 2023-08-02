@@ -7,12 +7,16 @@ import Header from '../components/Header';
 
 const CountriesDetails = () => {
   const { continentName } = useParams();
+  const realContinentName = continentName === 'Australia-Oceania'
+    ? continentName
+    : continentName.replace(/-/g, ' ');
+
   const dispatch = useDispatch();
 
   const { countries } = useSelector((state) => state.countries);
 
   useEffect(() => {
-    dispatch(getAllCountries(continentName));
+    dispatch(getAllCountries(realContinentName));
   }, [dispatch]);
 
   return (
