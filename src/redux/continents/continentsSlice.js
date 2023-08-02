@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import amountFormatter from '../../helper/amountFormatter';
 
 const apiEndpoint = 'https://disease.sh/v3/covid-19/continents';
 
-const actionName = 'continents/getAllContinents';
-
-export const getAllContinents = createAsyncThunk(actionName, async (thunkAPI) => {
+export const getAllContinents = createAsyncThunk('continents/getAllContinents', async (thunkAPI) => {
   try {
     const response = await axios.get(apiEndpoint);
     return response.data;
@@ -14,9 +13,19 @@ export const getAllContinents = createAsyncThunk(actionName, async (thunkAPI) =>
   }
 });
 
+export const getContinent = createAsyncThunk('continents/getContinent', async (continent, thunkAPI) => {
+  try {
+    const response = await axios.get(`${apiEndpoint}/${continent}`);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
 const initialState = {
   continents: [],
-  totalCases: 0,
+  selectedContinent: null,
+  totalCases: '',
   isLoading: false,
   error: null,
 };
@@ -36,16 +45,28 @@ export const continentsSlice = createSlice({
           {
             id: (index + 1),
             name: continent.continent,
-            cases: continent.cases,
-            deaths: continent.deaths,
-            recovered: continent.recovered,
+            cases: amountFormatter(continent.cases),
+            deaths: amountFormatter(continent.deaths),
+            recovered: amountFormatter(continent.recovered),
           }
         ));
-        state.totalCases = action.payload.reduce((acc, continent) => acc + continent.cases, 0);
+        state.totalCases = amountFormatter(
+          action.payload.reduce((acc, continent) => acc + continent.cases, 0),
+        );
       })
       .addCase(getAllContinents.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(getContinent.fulfilled, (state, action) => {
+        const continent = action.payload;
+        state.selectedContinent = {
+          population: amountFormatter(continent.population),
+          cases: amountFormatter(continent.cases),
+          deaths: amountFormatter(continent.deaths),
+          recovered: amountFormatter(continent.recovered),
+          active: amountFormatter(continent.active),
+        };
       });
   },
 });
