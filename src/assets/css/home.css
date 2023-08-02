@@ -13,15 +13,15 @@
   font-size: 0.8rem;
 }
 
-.countries-list {
+.continents-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.country-item {
+.continent-item {
   width: 50%;
-  height: 180px;
-  padding: 0.4rem;
+  height: 250px;
+  padding: 0.6rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -30,28 +30,52 @@
   transition: all 0.3s ease-out;
 }
 
-.country-item:hover {
-  background-color: rgba(75, 107, 177, 0.797);
+.continent-item:nth-child(4n+2),
+.continent-item:nth-child(4n+3) {
+  background-color: #375cab;
 }
 
-.country-item .btn-show-details {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
+.continent-item:hover {
+  background-color: #375cab;
+}
+
+.continent-item .icon-show-details {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.continent-item .icon-show-details svg {
   background-color: transparent;
+  border: none;
+  outline: none;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-right: 0.3rem;
 }
 
-.country-item .details {
-  text-align: right;
-  color: #fff;
-  width: 50%;
+.continent-item .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
 }
 
-.country-item .details .title {
+.continent-item .image img {
+  width: 60%;
+}
+
+.continent-item .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+  color: #fff;
+  width: 70%;
+  height: 40%;
+}
+
+.continent-item .details .title {
   font-size: 1rem;
 }
