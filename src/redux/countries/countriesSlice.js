@@ -1,12 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import amountFormatter from '../../helper/amountFormatter';
 
 const apiEndpoint = 'https://disease.sh/v3/covid-19/countries';
 
-const actionName = 'countries/getAllCountries';
-
 export const getAllCountries = createAsyncThunk(
-  actionName,
+  'countries/getAllCountries',
   async (continent, thunkAPI) => {
     try {
       const response = await axios.get(apiEndpoint);
@@ -42,16 +41,16 @@ export const countriesSlice = createSlice({
           id: index + 1,
           name: country.country,
           flag: country.countryInfo.flag,
-          population: country.population,
-          cases: country.cases,
-          todayCases: country.todayCases,
-          deaths: country.deaths,
-          todayDeaths: country.todayDeaths,
-          recovered: country.recovered,
-          todayRecovered: country.todayRecovered,
-          active: country.active,
-          critical: country.critical,
-          tests: country.tests,
+          population: amountFormatter(country.population),
+          cases: amountFormatter(country.cases),
+          todayCases: amountFormatter(country.todayCases),
+          deaths: amountFormatter(country.deaths),
+          todayDeaths: amountFormatter(country.todayDeaths),
+          recovered: amountFormatter(country.recovered),
+          todayRecovered: amountFormatter(country.todayRecovered),
+          active: amountFormatter(country.active),
+          critical: amountFormatter(country.critical),
+          tests: amountFormatter(country.tests),
         }));
       })
       .addCase(getAllCountries.rejected, (state, action) => {
