@@ -30,7 +30,7 @@
 }
 
 .region.info .name {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.04rem;
 }
@@ -42,4 +42,5 @@
 .region.info .name,
 .region.info .stats-counter {
   line-height: 1;
+  margin-bottom: 0.35rem;
 }
