@@ -1,0 +1,45 @@
+.headline {
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.region {
+  width: 50%;
+}
+
+.region.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.region.image img {
+  width: 100%;
+  max-height: 200px;
+}
+
+.region.info {
+  padding: 0.7rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.region.info .name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+}
+
+.region.info .stats-counter {
+  font-size: 0.9rem;
+}
+
+.region.info .name,
+.region.info .stats-counter {
+  line-height: 1;
+}
