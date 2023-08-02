@@ -22,3 +22,21 @@ body {
   text-transform: uppercase;
   padding: 0 0.8rem;
 }
+
+.child-element:nth-child(4n+2),
+.child-element:nth-child(4n+3) {
+  background-color: #375cab;
+}
+
+.child-element:hover {
+  background-color: #375cab;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+  transition: all 0.3s ease-out;
+}
+
+.opacity-5:hover {
+  opacity: 1;
+}
