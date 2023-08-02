@@ -23,7 +23,7 @@ const Home = () => {
         <Headline
           srcImg={Continents}
           name="World Statistics"
-          totalCases={totalCases}
+          information={[{ stats: totalCases, text: 'cases' }]}
         />
         <ContinentsList />
       </main>
