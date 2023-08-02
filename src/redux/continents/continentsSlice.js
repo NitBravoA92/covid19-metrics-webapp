@@ -16,7 +16,7 @@ export const getAllContinents = createAsyncThunk(actionName, async (thunkAPI) =>
 
 const initialState = {
   continents: [],
-  selectedContinent: {},
+  totalCases: 0,
   isLoading: false,
   error: null,
 };
@@ -24,14 +24,7 @@ const initialState = {
 export const continentsSlice = createSlice({
   name: 'continents',
   initialState,
-  reducers: {
-    updateSelectedContinent: (state, action) => {
-      const continent = action.payload;
-      state.selectedContinent = state.continents.find(
-        (continentItem) => continentItem.name === continent,
-      );
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getAllContinents.pending, (state) => {
@@ -46,11 +39,9 @@ export const continentsSlice = createSlice({
             cases: continent.cases,
             deaths: continent.deaths,
             recovered: continent.recovered,
-            countriesList: continent.countries.join(','),
           }
         ));
-        const [initialSelectedContinent] = state.continents;
-        state.selectedContinent = initialSelectedContinent;
+        state.totalCases = action.payload.reduce((acc, continent) => acc + continent.cases, 0);
       })
       .addCase(getAllContinents.rejected, (state, action) => {
         state.isLoading = false;
@@ -59,5 +50,4 @@ export const continentsSlice = createSlice({
   },
 });
 
-export const { updateSelectedContinent } = continentsSlice.actions;
 export default continentsSlice.reducer;
