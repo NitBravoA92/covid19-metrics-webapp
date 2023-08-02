@@ -7,10 +7,14 @@ const actionName = 'countries/getAllCountries';
 
 export const getAllCountries = createAsyncThunk(
   actionName,
-  async (thunkAPI) => {
+  async (continent, thunkAPI) => {
     try {
       const response = await axios.get(apiEndpoint);
-      return response.data;
+      const allCountries = response.data;
+      const countriesByContinent = allCountries.filter(
+        (country) => country.continent === continent,
+      );
+      return countriesByContinent;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -19,7 +23,6 @@ export const getAllCountries = createAsyncThunk(
 
 const initialState = {
   countries: [],
-  countriesByContinent: [],
   isLoading: false,
   error: null,
 };
@@ -27,14 +30,7 @@ const initialState = {
 export const countriesSlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {
-    getCountriesByContinent: (state, action) => {
-      const continent = action.payload;
-      state.countriesByContinent = state.countries.filter(
-        (country) => country.continent === continent,
-      );
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getAllCountries.pending, (state) => {
@@ -44,7 +40,6 @@ export const countriesSlice = createSlice({
         state.isLoading = false;
         state.countries = action.payload.map((country, index) => ({
           id: index + 1,
-          continent: country.continent,
           name: country.country,
           flag: country.countryInfo.flag,
           population: country.population,
@@ -66,5 +61,4 @@ export const countriesSlice = createSlice({
   },
 });
 
-export const { getCountriesByContinent } = countriesSlice.actions;
 export default countriesSlice.reducer;
