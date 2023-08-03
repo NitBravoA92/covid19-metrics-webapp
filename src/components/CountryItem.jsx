@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 
 const CountryItem = ({
@@ -7,7 +8,7 @@ const CountryItem = ({
   const countryName = name.replace(/\s/g, '-');
 
   return (
-    <a href={`${countryName}`} className="country-item child-element">
+    <NavLink to={`${countryName}`} className="country-item child-element">
       <div className="image">
         <img src={image} alt={name} loading="lazy" className="country-flag" />
       </div>
@@ -22,7 +23,7 @@ const CountryItem = ({
       <div className="footer-icon">
         <BsArrowRightCircle />
       </div>
-    </a>
+    </NavLink>
   );
 };
 

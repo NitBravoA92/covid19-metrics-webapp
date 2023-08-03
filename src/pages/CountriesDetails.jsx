@@ -1,29 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
-import { getAllCountries } from '../redux/countries/countriesSlice';
-import { getContinent } from '../redux/continents/continentsSlice';
 import continentImages from '../data/continentImages';
 import Header from '../components/Header';
 import Headline from '../components/Headline';
-import CountriesList from '../components/CountriesList';
+import SectionTitle from "../components/SectionTitle";
+import CountryItem from "../components/CountryItem";
 import '../assets/css/countries.css';
 
 const CountriesDetails = () => {
   const { continentName } = useParams();
+
   const realContinentName = continentName === 'Australia-Oceania'
     ? continentName
     : continentName.replace(/-/g, ' ');
 
-  const { selectedContinent } = useSelector((state) => state.continents);
+  const { continents } = useSelector((state) => state.continents);
+  const { countries } = useSelector((state) => state.countries);
 
-  const dispatch = useDispatch();
+  const selectedContinent = continents.find((continent) => continent.name === realContinentName);
 
-  useEffect(() => {
-    dispatch(getAllCountries(realContinentName));
-    dispatch(getContinent(realContinentName));
-  }, [dispatch, realContinentName]);
+  const filteredCountries = countries.filter((country) => country.continent === realContinentName);
 
   return (
     <>
@@ -42,7 +39,15 @@ const CountriesDetails = () => {
             { stats: selectedContinent?.active, text: 'active cases' },
           ]}
         />
-        <CountriesList />
+        
+        <section className="countries">
+          <SectionTitle title="Stats by countries" />
+          <div className="countries-list">
+            {filteredCountries.map(({ id, flag, name, cases }) => (
+              <CountryItem key={id} image={flag} name={name} cases={cases} />
+            ))}
+          </div>
+        </section>
       </main>
     </>
   );
