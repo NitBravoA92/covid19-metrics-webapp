@@ -15,7 +15,7 @@
   background-color: #375cab;
 }
 
-.country-stat-item:hover{
+.country-stat-item:hover {
   background-color: #375cab;
 }
 
@@ -23,4 +23,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.stat-show-title .title {
+  font-size: 1.2rem;
+  font-weight: 500;
 }

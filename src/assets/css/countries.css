@@ -38,10 +38,23 @@
 
 .country-info .cases-stats {
   color: #fff;
+  font-size: 0.9rem;
 }
 
 .footer-icon svg {
   color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+.continent-stats-search {
+  padding: 1rem;
+}
+
+#country-searcher {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  outline: none;
 }
