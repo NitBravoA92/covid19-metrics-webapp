@@ -62,7 +62,7 @@
 
 To see the application working live, you can click on the following link that contains the demo version:
 
-- [Covid19 Global Cases Stats - Live Demo](https://nitbravoa92.github.io/covid19-metrics-webapp/)
+- [Covid19 Global Cases Stats - Live Demo](https://covid19-global-stats.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
