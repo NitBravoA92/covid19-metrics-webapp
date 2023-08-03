@@ -1,0 +1,26 @@
+.country-details {
+  width: 100%;
+  list-style: none;
+}
+
+.country-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 1rem;
+  cursor: pointer;
+}
+
+.country-stat-item:nth-child(even) {
+  background-color: #375cab;
+}
+
+.country-stat-item:hover{
+  background-color: #375cab;
+}
+
+.stat-show-amount {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
