@@ -6,14 +6,10 @@ const apiEndpoint = 'https://disease.sh/v3/covid-19/countries';
 
 export const getAllCountries = createAsyncThunk(
   'countries/getAllCountries',
-  async (continent, thunkAPI) => {
+  async (thunkAPI) => {
     try {
       const response = await axios.get(apiEndpoint);
-      const allCountries = response.data;
-      const countriesByContinent = allCountries.filter(
-        (country) => country.continent === continent,
-      );
-      return countriesByContinent;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -40,6 +36,7 @@ export const countriesSlice = createSlice({
         state.countries = action.payload.map((country, index) => ({
           id: index + 1,
           name: country.country,
+          continent: country.continent,
           flag: country.countryInfo.flag,
           population: amountFormatter(country.population),
           cases: amountFormatter(country.cases),
