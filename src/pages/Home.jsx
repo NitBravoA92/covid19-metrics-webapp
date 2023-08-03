@@ -8,7 +8,19 @@ import Continents from '../assets/images/Continents.png';
 import '../assets/css/home.css';
 
 const Home = () => {
-  const { continents, totalCases } = useSelector((state) => state.continents);
+  const {
+    continents, totalCases, isLoading, error,
+  } = useSelector((state) => state.continents);
+
+  let loadMessage = null;
+
+  if (isLoading) {
+    loadMessage = 'Loading data...';
+  }
+
+  if (error) {
+    loadMessage = 'Error loading data';
+  }
 
   return (
     <>
@@ -20,17 +32,25 @@ const Home = () => {
           information={[{ stats: totalCases, text: 'cases' }]}
         />
         <section className="continents">
-          <SectionTitle title="Stats by continents" />
-          <div className="continents-list">
-            { continents.map((continent) => (
-              <ContinentItem
-                key={continent.id}
-                image={continentImages[continent.name]}
-                name={continent.name}
-                cases={continent.cases}
-              />
-            ))}
-          </div>
+          {
+            (isLoading || error)
+              ? (<p className="result-message">{loadMessage}</p>)
+              : (
+                <>
+                  <SectionTitle title="Stats by continents" />
+                  <div className="continents-list">
+                    { continents.map((continent) => (
+                      <ContinentItem
+                        key={continent.id}
+                        image={continentImages[continent.name]}
+                        name={continent.name}
+                        cases={continent.cases}
+                      />
+                    ))}
+                  </div>
+                </>
+              )
+          }
         </section>
       </main>
     </>
