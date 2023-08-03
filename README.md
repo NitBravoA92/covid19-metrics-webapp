@@ -1,16 +1,17 @@
 <a name="readme-top"></a>
 <div align="center">
   <br/>
-  <h1><b>Covid19 Metrics Webapp</b></h1>
+  <h1><b>Covid19 Global Cases Stats</b></h1>
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [Covid19 Metrics Webapp](#covid19-metrics-webapp)
+- [Covid19 Global Cases Stats](#covid19-global-cases-stats)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+    - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -24,9 +25,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# Covid19 Metrics Webapp<a name="about-project"></a>
+# Covid19 Global Cases Stats<a name="about-project"></a>
 
-**Covid19 Metrics Webapp** is an application built with ReactJS and Redux to manage the global state of the application, the Disease.sh API is used to query and show users the covid19 disease-related statistics by continent and countries
+**Covid19 Global Cases Stats** is an application built with ReactJS and Redux to manage the global state of the application, the Disease.sh API is used to query and show users the covid19 disease-related statistics by continents and countries
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,6 +55,14 @@
 - **SPA Approach**
 - **Responsive Design**
 - **Using Redux Toolkit for a global state management**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### 🚀 Live Demo <a name="live-demo"></a>
+
+To see the application working live, you can click on the following link that contains the demo version:
+
+- [Covid19 Global Cases Stats - Live Demo](https://covid19-global-cases-stats.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
