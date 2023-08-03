@@ -164,13 +164,14 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Create Home view**
-- [ ] **Create Countries view**
-- [ ] **Use Redux to manage the states of continents and countries**
-- [ ] **Fetch data using the disease.sh API**
-- [ ] **Add CSS styles to the UI following the mobile first approach**
+- [x] **Create Home view**
+- [x] **Create Countries Details view**
+- [x] **Create Country Stats view**
+- [x] **Use Redux to manage the states of continents and countries**
+- [x] **Fetch data using the disease.sh API**
+- [x] **Add CSS styles to the UI following the mobile first approach**
+- [x] **Deploy the final version of the project and share Link Demo in the documentation**
 - [ ] **Create Unit tests using Jest and React testing library**
-- [ ] **Deploy the final version of the project and share Link Demo in the documentation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,11 +192,14 @@ If you liked this project, give me a "Star" (clicking the star button at the beg
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank my Microverse teammates for their support. They have supported me a lot in carrying out this project, giving me suggestions, good advice and solving my code doubts.
+The UI design of this webapp is not mine. This design was created and belongs to Nelson Sakwa. (Here)[https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)] you can find more information about the original design of this webapp and you can also see Nelson Sakwa's profile (here)[https://www.behance.net/sakwadesignstudio] to know more details about his wonderful work.
 
+I would also like to thank my Microverse teammates for their support. They have supported me a lot in carrying out this project, giving me suggestions, good advice and solving my code doubts.
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
+
+The UI design of the webpage is not mine. It is under (Creative Commons License)[https://creativecommons.org/licenses/by/3.0/] licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
