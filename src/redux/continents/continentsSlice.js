@@ -13,18 +13,8 @@ export const getAllContinents = createAsyncThunk('continents/getAllContinents', 
   }
 });
 
-export const getContinent = createAsyncThunk('continents/getContinent', async (continent, thunkAPI) => {
-  try {
-    const response = await axios.get(`${apiEndpoint}/${continent}`);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
-
 const initialState = {
   continents: [],
-  selectedContinent: null,
   totalCases: '',
   isLoading: false,
   error: null,
@@ -33,7 +23,9 @@ const initialState = {
 export const continentsSlice = createSlice({
   name: 'continents',
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllContinents.pending, (state) => {
@@ -45,9 +37,11 @@ export const continentsSlice = createSlice({
           {
             id: (index + 1),
             name: continent.continent,
+            population: amountFormatter(continent.population),
             cases: amountFormatter(continent.cases),
             deaths: amountFormatter(continent.deaths),
             recovered: amountFormatter(continent.recovered),
+            active: amountFormatter(continent.active),
           }
         ));
         state.totalCases = amountFormatter(
@@ -57,16 +51,6 @@ export const continentsSlice = createSlice({
       .addCase(getAllContinents.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
-      .addCase(getContinent.fulfilled, (state, action) => {
-        const continent = action.payload;
-        state.selectedContinent = {
-          population: amountFormatter(continent.population),
-          cases: amountFormatter(continent.cases),
-          deaths: amountFormatter(continent.deaths),
-          recovered: amountFormatter(continent.recovered),
-          active: amountFormatter(continent.active),
-        };
       });
   },
 });

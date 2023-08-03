@@ -1,20 +1,26 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getAllContinents } from '../redux/continents/continentsSlice';
+import { useSelector } from 'react-redux';
 import Header from '../components/Header';
 import Headline from '../components/Headline';
-import ContinentsList from '../components/ContinentsList';
+import SectionTitle from '../components/SectionTitle';
+import ContinentItem from '../components/ContinentItem';
+import continentImages from '../data/continentImages';
 import Continents from '../assets/images/Continents.png';
 import '../assets/css/home.css';
 
 const Home = () => {
-  const { totalCases } = useSelector((state) => state.continents);
+  const {
+    continents, totalCases, isLoading, error,
+  } = useSelector((state) => state.continents);
 
-  const dispatchActions = useDispatch();
+  let loadMessage = null;
 
-  useEffect(() => {
-    dispatchActions(getAllContinents());
-  }, [dispatchActions]);
+  if (isLoading) {
+    loadMessage = 'Loading data...';
+  }
+
+  if (error) {
+    loadMessage = 'Error loading data';
+  }
 
   return (
     <>
@@ -25,7 +31,27 @@ const Home = () => {
           name="World Statistics"
           information={[{ stats: totalCases, text: 'cases' }]}
         />
-        <ContinentsList />
+        <section className="continents">
+          {
+            (isLoading || error)
+              ? (<p className="result-message">{loadMessage}</p>)
+              : (
+                <>
+                  <SectionTitle title="Stats by continents" />
+                  <div className="continents-list">
+                    { continents.map((continent) => (
+                      <ContinentItem
+                        key={continent.id}
+                        image={continentImages[continent.name]}
+                        name={continent.name}
+                        cases={continent.cases}
+                      />
+                    ))}
+                  </div>
+                </>
+              )
+          }
+        </section>
       </main>
     </>
   );

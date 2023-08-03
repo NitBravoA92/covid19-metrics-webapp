@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { BsArrowRightCircle } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 const ContinentItem = ({
   image, name, cases,
@@ -7,7 +8,7 @@ const ContinentItem = ({
   const continentName = name.replace(/\s/g, '-');
 
   return (
-    <a href={`${continentName}/countries`} className="continent-item child-element">
+    <NavLink to={`${continentName}`} className="continent-item child-element">
       <div className="icon-show-details">
         <BsArrowRightCircle />
       </div>
@@ -22,7 +23,7 @@ const ContinentItem = ({
           cases
         </p>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

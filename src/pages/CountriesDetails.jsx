@@ -1,29 +1,67 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { BsChevronLeft } from 'react-icons/bs';
-import { getAllCountries } from '../redux/countries/countriesSlice';
-import { getContinent } from '../redux/continents/continentsSlice';
 import continentImages from '../data/continentImages';
 import Header from '../components/Header';
 import Headline from '../components/Headline';
-import CountriesList from '../components/CountriesList';
+import SectionTitle from '../components/SectionTitle';
+import CountryItem from '../components/CountryItem';
 import '../assets/css/countries.css';
 
 const CountriesDetails = () => {
   const { continentName } = useParams();
+
+  const { continents } = useSelector((state) => state.continents);
+  const { countries, isLoading, error } = useSelector((state) => state.countries);
+
   const realContinentName = continentName === 'Australia-Oceania'
     ? continentName
     : continentName.replace(/-/g, ' ');
 
-  const { selectedContinent } = useSelector((state) => state.continents);
+  const selectedContinent = continents.find((continent) => continent.name === realContinentName);
 
-  const dispatch = useDispatch();
+  const [filteredCountries, setFilteredCountries] = useState({
+    countries: [],
+    searchedCountries: [],
+  });
+
+  const handlerSearch = (e) => {
+    const country = e.target.value;
+    if (country === '') {
+      setFilteredCountries((filteredCountries) => ({
+        ...filteredCountries,
+        searchedCountries: filteredCountries.countries,
+      }));
+    } else {
+      const newFilteredCountries = filteredCountries.countries.filter(
+        (item) => item.name.toUpperCase().includes(country.toUpperCase()),
+      );
+      setFilteredCountries((filteredCountries) => ({
+        ...filteredCountries,
+        searchedCountries: newFilteredCountries,
+      }));
+    }
+  };
 
   useEffect(() => {
-    dispatch(getAllCountries(realContinentName));
-    dispatch(getContinent(realContinentName));
-  }, [dispatch, realContinentName]);
+    const initialCountries = countries.filter((country) => country.continent === realContinentName);
+    setFilteredCountries((filteredCountries) => ({
+      ...filteredCountries,
+      countries: initialCountries,
+      searchedCountries: initialCountries,
+    }));
+  }, [countries]);
+
+  let loadMessage = null;
+
+  if (isLoading) {
+    loadMessage = 'Loading data...';
+  }
+
+  if (error) {
+    loadMessage = 'Error loading data';
+  }
 
   return (
     <>
@@ -42,7 +80,32 @@ const CountriesDetails = () => {
             { stats: selectedContinent?.active, text: 'active cases' },
           ]}
         />
-        <CountriesList />
+        <section className="continent-stats-search">
+          <input
+            type="text"
+            placeholder="Search country"
+            id="country-searcher"
+            onChange={handlerSearch}
+          />
+        </section>
+        <section className="countries">
+          {
+            (isLoading || error)
+              ? (<p className="result-message">{loadMessage}</p>)
+              : (
+                <>
+                  <SectionTitle title="Stats by countries" />
+                  <div className="countries-list">
+                    {filteredCountries.searchedCountries.map(({
+                      id, flag, name, cases,
+                    }) => (
+                      <CountryItem key={id} image={flag} name={name} cases={cases} />
+                    ))}
+                  </div>
+                </>
+              )
+          }
+        </section>
       </main>
     </>
   );

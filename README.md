@@ -1,16 +1,17 @@
 <a name="readme-top"></a>
 <div align="center">
   <br/>
-  <h1><b>Covid19 Metrics Webapp</b></h1>
+  <h1><b>Covid19 Global Cases Stats</b></h1>
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [Covid19 Metrics Webapp](#covid19-metrics-webapp)
+- [Covid19 Global Cases Stats](#covid19-global-cases-stats)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+    - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -24,9 +25,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# Covid19 Metrics Webapp<a name="about-project"></a>
+# Covid19 Global Cases Stats<a name="about-project"></a>
 
-**Covid19 Metrics Webapp** is an application built with ReactJS and Redux to manage the global state of the application, the Disease.sh API is used to query and show users the covid19 disease-related statistics by continent and countries
+**Covid19 Global Cases Stats** is an application built with ReactJS and Redux to manage the global state of the application, the Disease.sh API is used to query and show users the covid19 disease-related statistics by continents and countries
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,6 +55,14 @@
 - **SPA Approach**
 - **Responsive Design**
 - **Using Redux Toolkit for a global state management**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### 🚀 Live Demo <a name="live-demo"></a>
+
+To see the application working live, you can click on the following link that contains the demo version:
+
+- [Covid19 Global Cases Stats - Live Demo](https://covid19-global-stats.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -155,13 +164,14 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Create Home view**
-- [ ] **Create Countries view**
-- [ ] **Use Redux to manage the states of continents and countries**
-- [ ] **Fetch data using the disease.sh API**
-- [ ] **Add CSS styles to the UI following the mobile first approach**
+- [x] **Create Home view**
+- [x] **Create Countries Details view**
+- [x] **Create Country Stats view**
+- [x] **Use Redux to manage the states of continents and countries**
+- [x] **Fetch data using the disease.sh API**
+- [x] **Add CSS styles to the UI following the mobile first approach**
+- [x] **Deploy the final version of the project and share Link Demo in the documentation**
 - [ ] **Create Unit tests using Jest and React testing library**
-- [ ] **Deploy the final version of the project and share Link Demo in the documentation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,11 +192,14 @@ If you liked this project, give me a "Star" (clicking the star button at the beg
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank my Microverse teammates for their support. They have supported me a lot in carrying out this project, giving me suggestions, good advice and solving my code doubts.
+The UI design of this webapp is not mine. This design was created and belongs to Nelson Sakwa. (Here)[https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)] you can find more information about the original design of this webapp and you can also see Nelson Sakwa's profile (here)[https://www.behance.net/sakwadesignstudio] to know more details about his wonderful work.
 
+I would also like to thank my Microverse teammates for their support. They have supported me a lot in carrying out this project, giving me suggestions, good advice and solving my code doubts.
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
+
+The UI design of the webpage is not mine. It is under (Creative Commons License)[https://creativecommons.org/licenses/by/3.0/] licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

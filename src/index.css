@@ -12,7 +12,7 @@
 body {
   background-color: #4369b2;
   color: #fff;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .section-title {
@@ -39,4 +39,13 @@ body {
 
 .opacity-5:hover {
   opacity: 1;
+}
+
+.result-message {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #8aacf096;
 }
