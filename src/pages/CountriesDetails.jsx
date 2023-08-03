@@ -4,8 +4,8 @@ import { BsChevronLeft } from 'react-icons/bs';
 import continentImages from '../data/continentImages';
 import Header from '../components/Header';
 import Headline from '../components/Headline';
-import SectionTitle from "../components/SectionTitle";
-import CountryItem from "../components/CountryItem";
+import SectionTitle from '../components/SectionTitle';
+import CountryItem from '../components/CountryItem';
 import '../assets/css/countries.css';
 
 const CountriesDetails = () => {
@@ -39,11 +39,13 @@ const CountriesDetails = () => {
             { stats: selectedContinent?.active, text: 'active cases' },
           ]}
         />
-        
+
         <section className="countries">
           <SectionTitle title="Stats by countries" />
           <div className="countries-list">
-            {filteredCountries.map(({ id, flag, name, cases }) => (
+            {filteredCountries.map(({
+              id, flag, name, cases,
+            }) => (
               <CountryItem key={id} image={flag} name={name} cases={cases} />
             ))}
           </div>

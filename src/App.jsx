@@ -22,6 +22,6 @@ const App = () => {
       <Route path=":continentName/:countryName" element={<CountryStats />} />
     </Routes>
   );
-}
+};
 
 export default App;
