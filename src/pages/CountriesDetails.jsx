@@ -13,7 +13,7 @@ const CountriesDetails = () => {
   const { continentName } = useParams();
 
   const { continents } = useSelector((state) => state.continents);
-  const { countries } = useSelector((state) => state.countries);
+  const { countries, isLoading, error } = useSelector((state) => state.countries);
 
   const realContinentName = continentName === 'Australia-Oceania'
     ? continentName
@@ -53,6 +53,16 @@ const CountriesDetails = () => {
     }));
   }, [countries]);
 
+  let loadMessage = null;
+
+  if (isLoading) {
+    loadMessage = 'Loading data...';
+  }
+
+  if (error) {
+    loadMessage = 'Error loading data';
+  }
+
   return (
     <>
       <Header
@@ -79,14 +89,22 @@ const CountriesDetails = () => {
           />
         </section>
         <section className="countries">
-          <SectionTitle title="Stats by countries" />
-          <div className="countries-list">
-            {filteredCountries.searchedCountries.map(({
-              id, flag, name, cases,
-            }) => (
-              <CountryItem key={id} image={flag} name={name} cases={cases} />
-            ))}
-          </div>
+          {
+            (isLoading || error)
+              ? (<p className="result-message">{loadMessage}</p>)
+              : (
+                <>
+                  <SectionTitle title="Stats by countries" />
+                  <div className="countries-list">
+                    {filteredCountries.searchedCountries.map(({
+                      id, flag, name, cases,
+                    }) => (
+                      <CountryItem key={id} image={flag} name={name} cases={cases} />
+                    ))}
+                  </div>
+                </>
+              )
+          }
         </section>
       </main>
     </>
