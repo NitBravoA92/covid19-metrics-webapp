@@ -1,18 +1,16 @@
-import { Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-import thunk from 'redux-thunk'
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { Routes, Route, MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { render, screen } from '@testing-library/react';
 import continentsReducer, {
   getAllContinents,
-} from "../redux/continents/continentsSlice";
-import { fakeContinentData } from "../data/testsData";
+} from '../redux/continents/continentsSlice';
+import { fakeContinentData, fakeCountriesData } from '../data/testsData';
 import countriesReducer, { getAllCountries } from '../redux/countries/countriesSlice';
-import { fakeCountriesData } from '../data/testsData';
-import CountriesDetails from "../pages/CountriesDetails";
+import CountriesDetails from '../pages/CountriesDetails';
 
-describe("The CountriesDetails page component", () => {
+describe('The CountriesDetails page component', () => {
   let store;
 
   beforeEach(async () => {
@@ -36,7 +34,7 @@ describe("The CountriesDetails page component", () => {
     store.dispatch(getAllCountries());
   });
 
-  test("should render correctly into the DOM", async () => {
+  test('should render correctly into the DOM', async () => {
     const { countriesDetailsComponent } = render(
       <Provider store={store}>
         <MemoryRouter initialEntries={['/Africa']}>
@@ -49,7 +47,7 @@ describe("The CountriesDetails page component", () => {
     expect(countriesDetailsComponent).toMatchSnapshot();
   });
 
-  test("should render the second page of the app with the fake data of countries of Asia continent: Afghanistan", async () => {
+  test('should render the second page of the app with the fake data of countries of Asia continent: Afghanistan', async () => {
     render(
       <Provider store={store}>
         <MemoryRouter initialEntries={['/Asia']}>
@@ -60,13 +58,12 @@ describe("The CountriesDetails page component", () => {
       </Provider>,
     );
 
-    const countriesItems = document.querySelectorAll(".country-item");
-    const continentNameAsia = screen.getByText("Asia");
-    const countryName = screen.getByText("Afghanistan");
+    const countriesItems = document.querySelectorAll('.country-item');
+    const continentNameAsia = screen.getByText('Asia');
+    const countryName = screen.getByText('Afghanistan');
 
     expect(countriesItems).toHaveLength(1);
     expect(continentNameAsia).toBeInTheDocument();
     expect(countryName).toBeInTheDocument();
   });
-
 });
