@@ -149,6 +149,31 @@ export const fakeContinentData = [
     },
     countries: [],
   },
+  {
+    updated: 9746354590,
+    cases: 5000000,
+    todayCases: 0,
+    deaths: 2000,
+    todayDeaths: 0,
+    recovered: 4400000,
+    todayRecovered: 0,
+    active: 100000,
+    critical: 100,
+    casesPerOneMillion: 9124.86,
+    deathsPerOneMillion: 183.99,
+    tests: 20394857,
+    testsPerOneMillion: 78921.13,
+    population: 30874590,
+    continent: 'New Continent Fake',
+    activePerOneMillion: 347.91,
+    recoveredPerOneMillion: 8592.97,
+    criticalPerOneMillion: 0.39,
+    continentInfo: {
+      lat: 1.7383867,
+      long: -16.3094636,
+    },
+    countries: [],
+  },
 ];
 
 export const expectedContinentData = [
@@ -205,6 +230,15 @@ export const expectedContinentData = [
     deaths: '258,822',
     recovered: '12,087,976',
     active: '489,409',
+  },
+  {
+    id: 7,
+    name: 'New Continent Fake',
+    population: '30,874,590',
+    cases: '5,000,000',
+    deaths: '2,000',
+    recovered: '4,400,000',
+    active: '100,000',
   },
 ];
 
