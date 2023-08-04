@@ -19,7 +19,7 @@ describe('The Header component', () => {
     expect(headerComponent).toMatchSnapshot();
   });
 
-  it('should render the navigation bar with the text: Continent stats', () => {
+  test('should render the navigation bar with the text: Continent stats', () => {
     const navigation = {
       url: '/',
       name: <BsChevronLeft />,

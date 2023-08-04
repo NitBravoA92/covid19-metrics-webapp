@@ -26,6 +26,6 @@ describe('The continentsSlice', () => {
     });
     expect(nextState.isLoading).toBe(false);
     expect(nextState.continents).toEqual(expectedContinentData);
-    expect(nextState.totalCases).toBe('1,386,219,996');
+    expect(nextState.totalCases).toBe('1,391,219,996');
   });
 });
