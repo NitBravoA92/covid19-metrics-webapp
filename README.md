@@ -1,5 +1,6 @@
 <a name="readme-top"></a>
 <div align="center">
+  <img src=".\src\assets\images\app-logo.png" alt="Covid19 Global Cases Stats" width="180"  height="auto" />
   <br/>
   <h1><b>Covid19 Global Cases Stats</b></h1>
 </div>
