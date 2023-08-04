@@ -12,6 +12,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
     - [🚀 Live Demo ](#-live-demo-)
+  - [🔭 Walk through video ](#-walk-through-video-)
   - [💻 Getting Started ](#-getting-started-)
     - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -63,6 +64,13 @@
 To see the application working live, you can click on the following link that contains the demo version:
 
 - [Covid19 Global Cases Stats - Live Demo](https://covid19-global-stats.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🔭 Walk through video <a name="walk-through-video"></a>
+
+<a href="https://www.loom.com/share/32d151ccc5514ff5a0a08308f3d18cae?sid=9c94a5e3-fd98-46f4-8cae-a64087192455">Video presentation of the Project</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,7 +179,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [x] **Fetch data using the disease.sh API**
 - [x] **Add CSS styles to the UI following the mobile first approach**
 - [x] **Deploy the final version of the project and share Link Demo in the documentation**
-- [ ] **Create Unit tests using Jest and React testing library**
+- [x] **Create Unit tests using Jest and React testing library**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
