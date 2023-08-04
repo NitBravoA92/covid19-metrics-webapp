@@ -1,0 +1,60 @@
+.countries-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.country-item {
+  width: 50%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.country-item .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country-item .country-flag {
+  width: 60%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.country-info {
+  text-align: center;
+}
+
+.country-info .name {
+  color: #0f2d70;
+  font-weight: 700;
+}
+
+.country-info .cases-stats {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.footer-icon svg {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.continent-stats-search {
+  padding: 1rem;
+}
+
+#country-searcher {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  outline: none;
+}

@@ -1,0 +1,49 @@
+header {
+  background-color: #3864b4;
+  padding: 0.6rem 0.8rem;
+  height: 55px;
+}
+
+nav #menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  color: #fff;
+}
+
+#menu .pageName {
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding-top: 0.2rem;
+  font-family: 'Lato', sans-serif;
+}
+
+#menu .pageLink a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+#menu .pageLink a svg {
+  margin-top: 0.5rem;
+}
+
+#menu .menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#menu .menu-icons button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0.1rem;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}

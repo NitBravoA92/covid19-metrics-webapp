@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: #4369b2;
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.section-title {
+  background-color: #2853ad;
+  color: #fff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  padding: 0 0.8rem;
+}
+
+.child-element:nth-child(4n+2),
+.child-element:nth-child(4n+3) {
+  background-color: #375cab;
+}
+
+.child-element:hover {
+  background-color: #375cab;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+  transition: all 0.3s ease-out;
+}
+
+.opacity-5:hover {
+  opacity: 1;
+}
+
+.result-message {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #8aacf096;
+}
