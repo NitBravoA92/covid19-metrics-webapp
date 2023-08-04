@@ -22,18 +22,18 @@ describe('The ContinentItem component', () => {
     );
     const continentItemLink = document.querySelector('.continent-item');
     fireEvent.click(continentItemLink);
-    expect(window.location.pathname).toBe("/Australia-Oceania");
+    expect(window.location.pathname).toBe('/Australia-Oceania');
   });
 
   test('should render the text: Europe and the number of cases', () => {
     render(
       <MemoryRouter>
-        <ContinentItem image={continentImages['Europe']} name="Europe" cases="20,105,600" />
+        <ContinentItem image={continentImages.Europe} name="Europe" cases="20,105,600" />
       </MemoryRouter>,
     );
     const continentItemTitle = screen.getByText(/Europe/i);
     const continentItemCases = screen.getByText(/20,105,600 cases/i);
-    
+
     expect(continentItemTitle).toBeInTheDocument();
     expect(continentItemCases).toBeInTheDocument();
   });

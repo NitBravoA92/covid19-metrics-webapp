@@ -1,9 +1,7 @@
-import { getAllCountries } from '../redux/countries/countriesSlice';
-import countriesReducer from '../redux/countries/countriesSlice';
-import {fakeCountriesData, expectedCountriesData} from '../data/testsData';
+import countriesReducer, { getAllCountries } from '../redux/countries/countriesSlice';
+import { fakeCountriesData, expectedCountriesData } from '../data/testsData';
 
 describe('The countriesSlice', () => {
-
   test('should return the initial state of countries on first run', () => {
     const nextState = countriesReducer(undefined, {});
     expect(nextState).toEqual({
@@ -28,5 +26,4 @@ describe('The countriesSlice', () => {
     expect(nextState.isLoading).toBe(false);
     expect(nextState.countries).toEqual(expectedCountriesData);
   });
-
 });

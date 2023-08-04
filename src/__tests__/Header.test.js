@@ -1,34 +1,34 @@
-import "@testing-library/jest-dom/extend-expect";
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
-import Header from "../components/Header";
+import Header from '../components/Header';
 
-describe("The Header component", () => {
-  test("should render correctly into the DOM", () => {
+describe('The Header component', () => {
+  test('should render correctly into the DOM', () => {
     const navigation = {
-      url: "/",
+      url: '/',
       name: <span>Covid19</span>,
-      page: "Global cases stats",
+      page: 'Global cases stats',
     };
     const { headerComponent } = render(
       <MemoryRouter>
         <Header navigation={navigation} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(headerComponent).toMatchSnapshot();
   });
 
-  it("should render the navigation bar with the text: Continent stats", () => {
+  it('should render the navigation bar with the text: Continent stats', () => {
     const navigation = {
-      url: "/",
+      url: '/',
       name: <BsChevronLeft />,
-      page: "Continent stats",
+      page: 'Continent stats',
     };
     render(
       <MemoryRouter>
         <Header navigation={navigation} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     const headerTitle = screen.getByText(/Continent stats/i);
     expect(headerTitle).toBeInTheDocument();

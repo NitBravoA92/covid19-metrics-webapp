@@ -1,9 +1,7 @@
-import { getAllContinents } from '../redux/continents/continentsSlice';
-import continentsReducer from '../redux/continents/continentsSlice';
-import {fakeContinentData, expectedContinentData} from '../data/testsData';
+import continentsReducer, { getAllContinents } from '../redux/continents/continentsSlice';
+import { fakeContinentData, expectedContinentData } from '../data/testsData';
 
 describe('The continentsSlice', () => {
-
   test('should return the initial state of continents on first run', () => {
     const nextState = continentsReducer(undefined, {});
     expect(nextState).toEqual({
@@ -30,5 +28,4 @@ describe('The continentsSlice', () => {
     expect(nextState.continents).toEqual(expectedContinentData);
     expect(nextState.totalCases).toBe('1,386,219,996');
   });
-
 });
